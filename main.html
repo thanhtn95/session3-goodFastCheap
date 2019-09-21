@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<fieldset style="border-style:dot-dot-dash; width: 30%">
+    <legend><h2>Good-Fast-Cheap</h2></legend>
+    <input type="checkbox" onclick="check(this.id);" id="gd" style="margin: 10px"><b
+        style="font-size: large">Good</b><br>
+    <input type="checkbox" onclick="check(this.id)" id="ft"  style="margin: 10px"><b
+        style="font-size: large">Fast</b><br>
+    <input type="checkbox" onclick="check(this.id)" id="cp" style="margin: 10px"><b
+        style="font-size: large">Cheap</b><br>
+</fieldset>
+</body>
+<script>
+
+
+
+    function check(id) {
+        let g = document.getElementById("gd");
+        let f = document.getElementById("ft");
+        let c = document.getElementById("cp");
+        let good = g.checked,
+            cheap = f.checked,
+            fast = c.checked;
+
+        switch (id) {
+            case "gd":
+                if(good){
+                    if(cheap&&fast){
+                        f.checked =false;
+                    }
+                }
+                break;
+            case "ft":
+                if(fast){
+                    if(good && cheap){
+                        c.checked =false;
+                    }
+                }
+                break;
+            case "cp":
+                if(cheap){
+                    if(fast && good){
+                        g.checked =false;
+                    }
+                }
+        }
+    }
+</script>
+</html>
